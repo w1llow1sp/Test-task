@@ -54,7 +54,7 @@ export const languageReducer = (state: InitialStateType = initialState, action: 
         case "SELECT_TOGGLER":
             return {
                 ...state,
-                languages: state.languages.map((lang) =>
+                languages: state.languages.map(lang =>
                     lang.id === action.ID
                         ? {...lang, isSelect: action.isSelect}
                         : lang)

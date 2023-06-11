@@ -1,11 +1,14 @@
 import React, {FC} from "react";
 import styles from './LanguageHeader.module.css'
 import {HeadContainerPropsType} from "../LanguageHeaderContainer";
+import {v1} from 'uuid';
 
 export const LanguageHeader:FC<HeadContainerPropsType> = ({selectedLanguages,visibilityToggler,isIconFlipped}) => {
+
+
     let mappedSelectedLanguages = selectedLanguages.map((select) => {
         return (
-            <span key={select.indexOf(select)} className={styles.card}>
+            <span key={v1()} className={styles.card}>
                 {select}
                 <button onClick={()=>{}} className={styles.buttonCross}>
                     <span className={styles.cross}> X </span>

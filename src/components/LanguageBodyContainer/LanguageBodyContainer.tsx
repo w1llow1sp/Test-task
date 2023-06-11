@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {LanguageBody} from "./LanguageBody/LanguageBody";
-import {LangugesType, searchLanguagesAC, selectTogglerAC} from "../../redux/languages-reducer";
+import {LangugesType, searchLanguagesAC, selectedLanguagesAC, selectTogglerAC} from "../../redux/languages-reducer";
 import {AppRootState} from "../../redux/store";
 import {Dispatch} from "redux";
 
@@ -13,6 +13,7 @@ type mapStateToBody = {
 type mapDispatchToBody = {
     selectToggler:(ID: string, isSelect: boolean) => void
     searchLanguages:(searchTerm: string) =>void
+    selectedLang:()=>void
 }
 
 export type BodyContainerPropsType = mapDispatchToBody & mapStateToBody
@@ -34,6 +35,9 @@ let mapDispatchToBody = (dispatch:Dispatch):mapDispatchToBody => {
         },
         searchLanguages: (searchTerm: string) => {
             dispatch(searchLanguagesAC(searchTerm))
+        },
+        selectedLang : ()=> {
+            dispatch(selectedLanguagesAC())
         }
     }
 }
