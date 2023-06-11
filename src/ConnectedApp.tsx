@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {AppRootState} from "./redux/store";
-import {languageReducer} from "./redux/languages-reducer";
+import App from "./App";
 
 
-type mapStateToProps = {
+export type mapStateToProps = {
     isShow:boolean
 }
 
@@ -15,4 +15,4 @@ const mapStateToProps = (state:AppRootState):mapStateToProps => {
 };
 
 
-const AppCopy = connect()()
+export const ConnectedApp = connect(mapStateToProps)(App)

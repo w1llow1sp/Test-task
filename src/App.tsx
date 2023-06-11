@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
+import {mapStateToProps} from "./ConnectedApp";
+import {LanguageHeaderContainer} from "./components/LanguageHeaderContainer/LanguageHeaderContainer";
+import {LanguageBodyContainer} from "./components/LanguageBodyContainer/LanguageBodyContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export const App: FC<mapStateToProps> = ({isShow}) => {
+
+    return (
+        <div className={'container'}>
+            <LanguageHeaderContainer/>
+            {
+                isShow === true
+                    ? <LanguageBodyContainer/>
+                    : <div></div>
+            }
+        </div>
+    )
 }
 
 export default App;

@@ -1,0 +1,73 @@
+.headerContainer {
+    width: 60%;
+}
+.sectionContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.leftContainer {
+    display: flex;
+}
+
+.rightContainer {
+
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.card {
+    background: #F4F4F4;
+    border-radius: 8px;
+    padding: 6px 13px;
+
+}
+
+.card:not(:first-child) {
+    margin-left: 10px;
+}
+.buttonCross {
+    width: 10px;
+    height: 10px;
+    margin-left: 3px;
+    border: none;
+}
+
+
+.cross {
+    margin-left: 2px;
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+}
+
+
+.button {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 20px;
+    height: 10px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+.icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 10px;
+    background-image: url('../../../assets/arrow.svg'); /* замени на путь к твоей иконке */
+    background-size: cover;
+    transition: transform 0.3s ease;
+}
+.icon.flipped {
+    transform: rotate(180deg);
+}
+
