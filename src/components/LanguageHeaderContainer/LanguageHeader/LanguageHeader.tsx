@@ -1,9 +1,25 @@
-import React, {FC} from "react";
-import styles from './LanguageHeader.module.css'
-import {HeadContainerPropsType} from "../LanguageHeaderContainer";
-import {v1} from 'uuid';
 
-export const LanguageHeader:FC<HeadContainerPropsType> = ({selectedLanguages,visibilityToggler,isIconFlipped}) => {
+import React, {FC, useCallback} from "react";
+import styles from './LanguageHeader.module.css'
+import {v1} from 'uuid';
+import {VisibilityTogglerAC} from '../../../redux/languages-reducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootState} from '../../../redux/store';
+
+export const LanguageHeader  = React.memo( function () {
+    const dispatch = useDispatch()
+    // dispatch functions
+    const visibilityToggler  = useCallback(
+        () => {
+            dispatch(VisibilityTogglerAC())
+        },
+        [dispatch],
+    );
+    // datas from store
+    const selectedLanguages = useSelector<AppRootState,Array<string>>(state => state.root.selectedLanguages)
+
+    const isIconFlipped = useSelector<AppRootState,boolean>(state => state.root.isIconFlipped)
+
 
 
     let mappedSelectedLanguages = selectedLanguages.map((select) => {
@@ -36,4 +52,4 @@ export const LanguageHeader:FC<HeadContainerPropsType> = ({selectedLanguages,vis
         </div>
 
     )
-}
+} )

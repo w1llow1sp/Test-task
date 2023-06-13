@@ -1,19 +1,18 @@
-import React, {FC, useCallback} from 'react';
-import {mapStateToProps} from "./ConnectedApp";
-import {LanguageHeaderContainer} from "./components/LanguageHeaderContainer/LanguageHeaderContainer";
-import {useDispatch, useSelector} from 'react-redux';
+import React, {FC} from 'react';
+import { useSelector} from 'react-redux';
 import {LanguageBody} from './components/LanguageBodyContainer/LanguageBody/LanguageBody';
 import {AppRootState} from './redux/store';
+import {LanguageHeader} from './components/LanguageHeaderContainer/LanguageHeader/LanguageHeader';
 
 
-    export const App: FC<mapStateToProps> = () => {
+    export const App: FC = () => {
     const isShow = useSelector<AppRootState,boolean>(state => state.root.isShow)
 
     return (
         <div className={'container'}>
-            <LanguageHeaderContainer/>
+            <LanguageHeader/>
             {
-                isShow === true
+                isShow
                     ? <LanguageBody/>
                     : <div></div>
             }
