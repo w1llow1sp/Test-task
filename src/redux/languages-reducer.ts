@@ -60,23 +60,30 @@ export const languageReducer = (state: InitialStateType = initialState, action: 
                         : lang)
             }
         case 'SEARCH_LANGUAGES':
-
-            const initialCopy = state.languages
-             if (action.searchTerm == '' && state.languages.length == 0) {
-                 return {
-                     ...state,
-                     searchTerm: action.searchTerm,
-                     languages:  initialCopy
-                 };
-             } else {
-                 return {
-                     ...state,
-                     searchTerm:action.searchTerm,
-                     languages: state.languages.filter(lang => {
-                         lang.lang.toLowerCase().includes(action.searchTerm.toLowerCase())
-                     })
-                 }
-             }
+            return {
+                ...state,
+                searchTerm: action.searchTerm,
+                languages: state.languages.filter((lang) =>
+                    lang.lang.toLowerCase().includes(action.searchTerm.toLowerCase())
+                )
+            };
+            //
+            // const initialCopy = state.languages
+            //  if (action.searchTerm == '' && state.languages.length == 0) {
+            //      return {
+            //          ...state,
+            //          searchTerm: action.searchTerm,
+            //          languages:  initialCopy
+            //      };
+            //  } else {
+            //      return {
+            //          ...state,
+            //          searchTerm:action.searchTerm,
+            //          languages: state.languages.filter(lang => {
+            //              lang.lang.toLowerCase().includes(action.searchTerm.toLowerCase())
+            //          })
+            //      }
+            //  }
 
         case "SELECTED_LANG":
             return {
