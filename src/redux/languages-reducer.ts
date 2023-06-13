@@ -19,7 +19,7 @@ export type InitialStateType = {
     searchTerm: string
     isShow: boolean
     isIconFlipped: boolean
-    selectedLanguages:Array<string>
+    selectedLanguages: Array<string>
 }
 
 export type ActionsType =
@@ -41,7 +41,7 @@ const initialState: InitialStateType = {
     searchTerm: '',
     isShow: false,
     isIconFlipped: false,
-    selectedLanguages:['Английский','Немецкий']
+    selectedLanguages: ['Английский', 'Немецкий']
 }
 export const languageReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
@@ -70,8 +70,8 @@ export const languageReducer = (state: InitialStateType = initialState, action: 
         case "SELECTED_LANG":
             return {
                 ...state,
-                selectedLanguages:state.languages.filter
-                (lang=>lang.isSelect).map(lang => lang.lang)
+                selectedLanguages: state.languages.filter
+                (lang => lang.isSelect).map(lang => lang.lang)
             }
         default:
             return state
