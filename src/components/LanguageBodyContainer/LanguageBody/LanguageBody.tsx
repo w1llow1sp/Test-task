@@ -26,16 +26,20 @@ export const LanguageBody = React.memo( function () {
          },
          [dispatch],
      );
-     const selectedLang  = useCallback(
-         () => {
-             dispatch(selectedLanguagesAC())
-         },
-         [dispatch],
-     );
+
     // datas from store
     const language  = useSelector<AppRootState,Array<LangugesType>>(state => state.root.languages)
 
+    console.log(language)
+
     const searchTerm = useSelector<AppRootState,string>(state => state.root.searchTerm)
+
+    const selectedLang  = useCallback(
+        () => {
+            dispatch(selectedLanguagesAC())
+        },
+        [dispatch],
+    );
 
 
     const mappedLanguages = language.map(lang => {
@@ -53,6 +57,8 @@ export const LanguageBody = React.memo( function () {
         let searchTerm = e.currentTarget.value
         searchLanguages(searchTerm);
     };
+
+
 
     return (
         <div className={styles.container}>
